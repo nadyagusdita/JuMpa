@@ -2,4 +2,11 @@
     <string name="app_name">JuMpa</string>
     <string name="rp_168_000">Rp 168.000</string>
     <string name="pendapatan_dari_sampah_yang_kamu_jual">Pendapatan dari sampah yang kamu jual</string>
+    <string name="berat_sampah_terjual">Berat Sampah Terjual</string>
+    <string name="_20_kg">20 Kg</string>
+    <string name="total_berat_sampah_yang_sudah_kamu_jual">Total berat sampah yang sudah kamu jual</string>
+    <string name="jual_sampah_sekarang">Jual sampah sekarang</string>
+    <string name="lihat_pesanan_yang_dibuat">Lihat pesanan yang dibuat</string>
+    <string name="history">History</string>
+    <string name="lihat_daftar_harga_sampah">Lihat daftar harga sampah</string>
 </resources>
