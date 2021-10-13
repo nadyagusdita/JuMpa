@@ -9,4 +9,16 @@
     <string name="lihat_pesanan_yang_dibuat">Lihat pesanan yang dibuat</string>
     <string name="history">History</string>
     <string name="lihat_daftar_harga_sampah">Lihat daftar harga sampah</string>
+    <string name="belum_punya_akun_daftar">Belum punya akun? Daftar</string>
+    <string name="pilih_kategori_sampah_yang_ingin_anda_jual_kepada_kami">Pilih kategori sampah yang ingin anda jual kepada kami</string>
+    <string name="pilih_kategori_sampah_yang_ingin_kamu_jual" />
+    <string name="besi_amp_logam"><![CDATA[Besi & Logam]]></string>
+    <string name="pilih_tanggal">Pilih Tanggal</string>
+    <string name="pilih_kategori_sampah_yang_ingin_dijual">Pilih kategori sampah yang ingin dijual</string>
+    <string-array name="item_time">
+        <item>Pilih Waktu</item>
+        <item>08:00 - 12:00</item>
+        <item>12:00 - 15:00</item>
+        <item>15:00 - 17:00</item>
+    </string-array>
 </resources>

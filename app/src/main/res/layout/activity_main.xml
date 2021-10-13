@@ -200,6 +200,7 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
+
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="40dp"
@@ -219,11 +220,12 @@
                     <ImageView
                         android:layout_width="54dp"
                         android:layout_height="54dp"
-                        android:src="@drawable/ic_plus"
+                        android:src="@drawable/ic_dropoff"
                         android:layout_marginTop="24dp"
                         android:layout_marginLeft="20dp"/>
 
                     <LinearLayout
+                        android:id="@+id/dropoffmenu"
                         android:orientation="vertical"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content">
@@ -234,7 +236,7 @@
                             android:layout_marginStart="20dp"
                             android:layout_marginTop="24dp"
                             android:fontFamily="@font/poppinsmedium"
-                            android:text="@string/jual_sampah_sekarang"
+                            android:text="Drop Off"
                             android:textColor="#1F2839"
                             android:textSize="16sp" />
 
@@ -244,7 +246,66 @@
                             android:layout_marginStart="20dp"
                             android:layout_marginEnd="20dp"
                             android:fontFamily="@font/poppinsregular"
-                            android:text="Dapatkan uang dari jual sampah"
+                            android:text="Antar sampah ke outlet terdekat"
+                            android:textColor="#8C8C8C"
+                            android:textSize="13sp" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:background="@drawable/cardwhitesm"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewOne"
+                tools:ignore="MissingConstraints">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        android:layout_width="54dp"
+                        android:layout_height="54dp"
+                        android:src="@drawable/ic_pickup"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginLeft="20dp"/>
+
+                    <LinearLayout
+                        android:id="@+id/pickupmenu"
+                        android:orientation="vertical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginTop="24dp"
+                            android:fontFamily="@font/poppinsmedium"
+                            android:text="Pick Up"
+                            android:textColor="#1F2839"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="20dp"
+                            android:layout_marginEnd="20dp"
+                            android:fontFamily="@font/poppinsregular"
+                            android:text="Kami jemput sampah ke lokasi"
                             android:textColor="#8C8C8C"
                             android:textSize="13sp" />
                     </LinearLayout>

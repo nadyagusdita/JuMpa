@@ -1,0 +1,463 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fafafa"
+    tools:context=".PickUpActivity">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="52dp"
+            android:background="@drawable/bg_small_header">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="12dp">
+
+                <ImageButton
+                    android:id="@+id/arrow_back"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/arrow_back"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:text="Pick Up"
+                    android:layout_centerInParent="true"
+                    android:textColor="@color/black"
+                    android:textSize="18sp"
+                    android:gravity="center_horizontal"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="24dp">
+
+                <TextView
+                    android:id="@+id/judulkategori"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Kategori"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textColor="@color/black"
+                    android:textSize="16sp"
+                    android:layout_marginTop="18dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pilih kategori sampah yang ingin kamu jual"
+                    android:layout_below="@+id/judulkategori"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textSize="13sp"/>
+            </RelativeLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="18dp">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp">
+
+                <ImageView
+                    android:id="@+id/icpaper"
+                    android:layout_width="40dp"
+                    android:layout_height="25dp"
+                    android:background="@drawable/paper"
+                    android:layout_marginTop="10dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/icpaper"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Kertas"
+                    android:textColor="@color/black" />
+
+                <CheckBox
+                    android:id="@+id/cbkertas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp">
+
+                <ImageView
+                    android:id="@+id/icplastik"
+                    android:layout_width="25dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/plastic"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginStart="13dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/icplastik"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Plastik"
+                    android:textColor="@color/black" />
+
+                <CheckBox
+                    android:id="@+id/cbplastik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp">
+
+                <ImageView
+                    android:id="@+id/icbesilogam"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/besi_logam"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/icbesilogam"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="@string/besi_amp_logam"
+                    android:textColor="@color/black" />
+
+                <CheckBox
+                    android:id="@+id/cbbesilogam"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp">
+
+                <ImageView
+                    android:id="@+id/icelektornik"
+                    android:layout_width="38dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/electonic"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/icelektornik"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Elektronik"
+                    android:textColor="@color/black" />
+
+                <CheckBox
+                    android:id="@+id/cbelektornik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp">
+
+                <ImageView
+                    android:id="@+id/ickaca"
+                    android:layout_width="21dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/kaca"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginStart="16dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/ickaca"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Kaca"
+                    android:textColor="@color/black" />
+
+                <CheckBox
+                    android:id="@+id/cbkaca"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp">
+
+                <ImageView
+                    android:id="@+id/ickain"
+                    android:layout_width="36dp"
+                    android:layout_height="29dp"
+                    android:background="@drawable/kain"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/ickain"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Kain"
+                    android:textColor="@color/black" />
+
+                <CheckBox
+                    android:id="@+id/cbkain"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginBottom="15dp">
+
+                <ImageView
+                    android:id="@+id/ickeramik"
+                    android:layout_width="39dp"
+                    android:layout_height="37dp"
+                    android:background="@drawable/keramik"
+                    android:layout_marginTop="8dp"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@+id/ickeramik"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Keramik"
+                    android:textColor="@color/black" />
+
+                <CheckBox
+                    android:id="@+id/cbkeramik"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_camera"
+                    android:layout_width="360dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/btn_green"
+                    android:drawableLeft="@drawable/ic_camera"
+                    android:drawablePadding="20dp"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="2dp"
+                    android:text="Foto Sampah"
+                    android:textColor="@color/white"
+                    android:textAlignment="textStart"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textAllCaps="false">
+                </androidx.appcompat.widget.AppCompatButton>
+
+                <ImageView
+                    android:layout_width="360dp"
+                    android:layout_height="200dp"
+                    android:layout_marginTop="70dp"
+                    android:id="@+id/click_image"
+                    android:src="@drawable/bg_no_photo"
+                    android:layout_marginBottom="10dp"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Tanggal Penjemputan"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/eTextTanggal"
+                    android:layout_width="360dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/btn_green"
+                    android:layout_marginTop="50dp"
+                    android:textColor="@color/white"
+                    android:drawableLeft="@drawable/ic_calendar"
+                    android:drawablePadding="20dp"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="2dp"
+                    android:text="@string/pilih_tanggal"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textSize="15dp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Waktu Penjemputan"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textColor="@color/black"/>
+
+                <Spinner
+                    android:id="@+id/spinner_time"
+                    android:layout_width="360dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/btn_green"
+                    android:spinnerMode="dropdown"
+                    android:theme="@style/mySpinnerItemStyle"/>
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="No. Ponsel"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textColor="@color/black"/>
+
+                <EditText
+                    android:id="@+id/eTextPonsel"
+                    android:layout_width="360dp"
+                    android:layout_height="45dp"
+                    android:background="@drawable/btn_green"
+                    android:layout_marginTop="50dp"
+                    android:textColor="@color/white"
+                    android:drawablePadding="20dp"
+                    android:paddingLeft="25dp"
+                    android:paddingTop="2dp"
+                    android:hint="Masukkan No. Ponsel"
+                    android:textColorHint="@color/white"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textSize="15dp"
+                    />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="Pilih alamat penjemputan"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textColor="@color/black"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_pilih"
+                    android:layout_width="98dp"
+                    android:layout_height="33dp"
+                    android:layout_marginTop="50dp"
+                    android:background="@drawable/btn_green"
+                    android:text="Pilih"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textAllCaps="false">
+                </androidx.appcompat.widget.AppCompatButton>
+                
+                <TextView
+                    android:id="@+id/tViewAlamat"
+                    android:layout_width="360dp"
+                    android:layout_height="120dp"
+                    android:background="@drawable/btn_green"
+                    android:layout_below="@+id/btn_pilih"
+                    android:textColor="@color/white"
+                    android:paddingStart="25dp"
+                    android:paddingEnd="25dp"
+                    android:fontFamily="@font/poppinsregular"
+                    android:textSize="15dp"
+                    android:layout_marginTop="10dp"/>
+
+                <androidx.appcompat.widget.AppCompatButton
+                    android:id="@+id/btn_pesan"
+                    android:layout_width="360dp"
+                    android:layout_height="45dp"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginBottom="50dp"
+                    android:layout_below="@+id/tViewAlamat"
+                    android:background="@drawable/btn_green"
+                    android:text="Jual Sekarang"
+                    android:textColor="@color/white"
+                    android:textAlignment="center"
+                    android:fontFamily="@font/poppinsmedium"
+                    android:textAllCaps="false">
+                </androidx.appcompat.widget.AppCompatButton>
+
+            </RelativeLayout>
+
+
+
+
+
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
