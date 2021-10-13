@@ -98,7 +98,7 @@
         android:id="@+id/lupa_pass"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Lupa Password?"
         tools:layout_editor_absoluteX="144dp"
         tools:layout_editor_absoluteY="601dp"
         tools:text="Lupa Password?" />
