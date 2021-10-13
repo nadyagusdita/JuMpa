@@ -1,24 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fafafa"
-    tools:context=".LoginActivity">
+    tools:context=".SignUpActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginStart="35dp"
-        android:layout_marginEnd="35dp">
-
+    <ImageButton
+        android:id="@+id/arrow_back"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="260dp"
+        android:src="@drawable/arrow_back"
+        app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.285"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="match_parent"
+        android:layout_width="154dp"
         android:layout_height="149dp"
         android:layout_marginTop="72dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,12 +33,11 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:gravity="center_horizontal"
         android:fontFamily="@font/poppinsmedium"
-        android:text="Masuk"
+        android:text="Daftar Akun"
         android:textColor="@color/black"
         android:textSize="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -43,13 +46,13 @@
 
     <EditText
         android:id="@+id/inputEmail"
-        android:layout_width="match_parent"
+        android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_marginTop="25dp"
         android:background="@drawable/bg_input"
         android:ems="10"
-        android:hint="Email"
         android:textSize="14dp"
+        android:hint="Email"
         android:inputType="textEmailAddress"
         android:paddingLeft="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -58,8 +61,24 @@
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
+        android:id="@+id/inputUsername"
+        android:layout_width="320dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="25dp"
+        android:background="@drawable/bg_input"
+        android:ems="10"
+        android:textSize="14dp"
+        android:hint="Username"
+        android:inputType="textEmailAddress"
+        android:paddingLeft="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.505"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+
+    <EditText
         android:id="@+id/inputPassword"
-        android:layout_width="match_parent"
+        android:layout_width="320dp"
         android:layout_height="50dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/bg_input"
@@ -71,18 +90,18 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.505"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/inputEmail" />
+        app:layout_constraintTop_toBottomOf="@+id/inputUsername" />
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_login"
-        android:layout_width="match_parent"
+        android:id="@+id/btn_daftar"
+        android:layout_width="320dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
         android:layout_marginTop="35dp"
         android:background="@drawable/btn_green"
         android:fontFamily="@font/poppinsregular"
-        android:text="Masuk"
+        android:text="Daftar"
         android:textAllCaps="false"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
@@ -91,54 +110,7 @@
         app:layout_constraintTop_toBottomOf="@+id/inputPassword">
     </androidx.appcompat.widget.AppCompatButton>
 
-    <TextView
-        android:id="@+id/atau"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:gravity="center_horizontal"
-        android:fontFamily="@font/poppinsregular"
-        android:text="Belum punya akun?"
-        android:textColor="@color/black"
-        android:textSize="14dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/btn_daftar"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/bg_input"
-        android:fontFamily="@font/poppinsregular"
-        android:text="Daftar"
-        android:textAllCaps="false"
-        android:textColor="@color/black"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.494"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/atau">
-    </androidx.appcompat.widget.AppCompatButton>
 
-    <TextView
-        android:id="@+id/txtLupaPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="40dp"
-        android:fontFamily="@font/poppinsregular"
-        android:text="Lupa password?"
-        android:textColor="@color/black"
-        android:textSize="14dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.851"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_daftar" />
 
-    </LinearLayout>
-
-</ScrollView>
+</androidx.constraintlayout.widget.ConstraintLayout>

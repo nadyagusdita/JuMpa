@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fafafa"
-    tools:context=".DropOffActivity">
+    tools:context=".DaftarHargaActivity">
 
 
     <LinearLayout
@@ -21,7 +21,7 @@
 
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="20dp"
+                android:layout_height="25dp"
                 android:layout_marginLeft="20dp"
                 android:layout_marginTop="12dp">
 
@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginStart="24dp"
-            android:layout_marginEnd="10dp"
+            android:layout_marginEnd="24dp"
             android:layout_marginTop="18dp">
 
             <RelativeLayout
@@ -316,3 +316,4 @@
                 </RelativeLayout>
             </LinearLayout>
     </LinearLayout>
+</ScrollView>

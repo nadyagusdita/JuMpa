@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#fafafa"
-    tools:context=".PickUpActivity">
+    tools:context=".SelesaikanTransaksiActivity">
 
     <LinearLayout
         android:orientation="vertical"
@@ -35,7 +35,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/poppinsmedium"
-                    android:text="Pick Up"
+                    android:text="Selesaikan Transaksi"
                     android:layout_centerInParent="true"
                     android:textColor="@color/black"
                     android:textSize="18sp"
@@ -56,7 +56,7 @@
                     android:id="@+id/judulkategori"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Kategori"
+                    android:text="23 September 2021"
                     android:fontFamily="@font/poppinsmedium"
                     android:textColor="@color/black"
                     android:textSize="16sp"
@@ -65,7 +65,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Pilih kategori sampah yang ingin kamu jual"
+                    android:text="Masukkan angka berat sampah yang dijual"
                     android:layout_below="@+id/judulkategori"
                     android:fontFamily="@font/poppinsregular"
                     android:textSize="13sp"/>
@@ -89,8 +89,8 @@
                     android:id="@+id/icpaper"
                     android:layout_width="40dp"
                     android:layout_height="25dp"
-                    android:background="@drawable/paper"
-                    android:layout_marginTop="10dp"/>
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/paper" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -102,11 +102,25 @@
                     android:text="Kertas"
                     android:textColor="@color/black" />
 
-                <CheckBox
-                    android:id="@+id/cbkertas"
+                <EditText
+                    android:id="@+id/eTextKertas"
+                    android:layout_width="60dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/border_edit_text" />
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/eTextKertas"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Kg"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="-40dp"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -132,11 +146,25 @@
                     android:text="Plastik"
                     android:textColor="@color/black" />
 
-                <CheckBox
-                    android:id="@+id/cbplastik"
+                <EditText
+                    android:id="@+id/eTextPlastik"
+                    android:layout_width="60dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/border_edit_text" />
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/eTextPlastik"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Kg"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="-40dp"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -162,11 +190,25 @@
                     android:text="@string/besi_amp_logam"
                     android:textColor="@color/black" />
 
-                <CheckBox
-                    android:id="@+id/cbbesilogam"
+                <EditText
+                    android:id="@+id/eTextBesiLogam"
+                    android:layout_width="60dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/border_edit_text" />
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/eTextBesiLogam"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Kg"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="-40dp"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -191,11 +233,25 @@
                     android:text="Elektronik"
                     android:textColor="@color/black" />
 
-                <CheckBox
-                    android:id="@+id/cbelektornik"
+                <EditText
+                    android:id="@+id/eTextElektronik"
+                    android:layout_width="60dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/border_edit_text" />
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/eTextElektronik"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Kg"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="-40dp"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -221,12 +277,27 @@
                     android:text="Kaca"
                     android:textColor="@color/black" />
 
-                <CheckBox
-                    android:id="@+id/cbkaca"
+                <EditText
+                    android:id="@+id/eTextKaca"
+                    android:layout_width="60dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/border_edit_text" />
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/eTextKaca"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Kg"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="-40dp"/>
             </RelativeLayout>
+
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -250,11 +321,25 @@
                     android:text="Kain"
                     android:textColor="@color/black" />
 
-                <CheckBox
-                    android:id="@+id/cbkain"
+                <EditText
+                    android:id="@+id/eTextKain"
+                    android:layout_width="60dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:textAlignment="center"
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/border_edit_text" />
+
+                <TextView
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"/>
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/eTextKain"
+                    android:fontFamily="@font/poppinsregular"
+                    android:text="Kg"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="-40dp"/>
             </RelativeLayout>
 
             <RelativeLayout
@@ -279,192 +364,42 @@
                     android:text="Keramik"
                     android:textColor="@color/black" />
 
-                <CheckBox
-                    android:id="@+id/cbkeramik"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="23dp">
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_camera"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="20dp"
-                    android:background="@drawable/btn_green"
-                    android:drawableLeft="@drawable/ic_camera"
-                    android:drawablePadding="20dp"
-                    android:paddingLeft="25dp"
-                    android:paddingTop="2dp"
-                    android:text="Foto Sampah"
-                    android:textColor="@color/white"
-                    android:textAlignment="textStart"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:textAllCaps="false">
-                </androidx.appcompat.widget.AppCompatButton>
-
-                <ImageView
-                    android:layout_width="match_parent"
-                    android:layout_height="200dp"
-                    android:layout_marginTop="70dp"
-                    android:id="@+id/click_image"
-                    android:src="@drawable/bg_no_photo"
-                    android:layout_marginBottom="10dp"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="23dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="Tanggal Penjemputan"
-                    android:fontFamily="@font/poppinsregular"
-                    android:textColor="@color/black"/>
-
                 <EditText
-                    android:id="@+id/eTextTanggal"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="@drawable/btn_green"
-                    android:layout_marginTop="50dp"
-                    android:textColor="@color/white"
-                    android:drawableLeft="@drawable/ic_calendar"
-                    android:drawablePadding="20dp"
-                    android:paddingLeft="25dp"
-                    android:paddingTop="2dp"
-                    android:text="@string/pilih_tanggal"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:textSize="15dp"
-                    />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="23dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="Waktu Penjemputan"
-                    android:fontFamily="@font/poppinsregular"
-                    android:textColor="@color/black"/>
-
-                <Spinner
-                    android:id="@+id/spinner_time"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:layout_marginTop="50dp"
-                    android:background="@drawable/drop_down_white"
-                    android:spinnerMode="dropdown"
-                    android:paddingStart="25dp"
-                    android:gravity="center"
-                    android:theme="@style/mySpinnerItemStyle"/>
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="23dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="No. Ponsel"
-                    android:fontFamily="@font/poppinsregular"
-                    android:textColor="@color/black"/>
-
-                <EditText
-                    android:id="@+id/eTextPonsel"
-                    android:layout_width="match_parent"
-                    android:layout_height="45dp"
-                    android:background="@drawable/btn_green"
-                    android:layout_marginTop="50dp"
-                    android:textColor="@color/white"
-                    android:drawablePadding="20dp"
-                    android:paddingLeft="25dp"
-                    android:paddingTop="2dp"
-                    android:hint="Masukkan No. Ponsel"
-                    android:textColorHint="@color/white"
-                    android:fontFamily="@font/poppinsregular"
-                    android:textSize="15dp"
-                    />
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginEnd="23dp">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:text="Pilih alamat penjemputan"
-                    android:fontFamily="@font/poppinsregular"
-                    android:textColor="@color/black"/>
-
-                <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_pilih"
-                    android:layout_width="98dp"
-                    android:layout_height="33dp"
-                    android:layout_marginTop="50dp"
-                    android:background="@drawable/btn_green"
-                    android:text="Pilih"
-                    android:textColor="@color/white"
+                    android:id="@+id/eTextKeramik"
+                    android:layout_width="60dp"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
                     android:textAlignment="center"
-                    android:fontFamily="@font/poppinsmedium"
-                    android:textAllCaps="false">
-                </androidx.appcompat.widget.AppCompatButton>
+                    android:textSize="14sp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="50dp"
+                    android:background="@drawable/border_edit_text" />
 
                 <TextView
-                    android:id="@+id/tViewAlamat"
-                    android:layout_width="match_parent"
-                    android:layout_height="120dp"
-                    android:background="@drawable/btn_green"
-                    android:layout_below="@+id/btn_pilih"
-                    android:textColor="@color/white"
-                    android:paddingStart="25dp"
-                    android:paddingEnd="25dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@+id/eTextKeramik"
                     android:fontFamily="@font/poppinsregular"
-                    android:textSize="15dp"
-                    android:layout_marginTop="10dp"/>
+                    android:text="Kg"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="-40dp"/>
 
                 <androidx.appcompat.widget.AppCompatButton
-                    android:id="@+id/btn_pesan"
-                    android:layout_width="match_parent"
+                    android:id="@+id/btn_selesaitrk"
+                    android:layout_width="360dp"
                     android:layout_height="45dp"
-                    android:layout_marginTop="50dp"
+                    android:layout_marginTop="100dp"
                     android:layout_marginBottom="50dp"
                     android:layout_below="@+id/tViewAlamat"
                     android:background="@drawable/btn_green"
-                    android:text="Jual Sekarang"
+                    android:text="Selesaikan Transaksi"
                     android:textColor="@color/white"
                     android:textAlignment="center"
                     android:fontFamily="@font/poppinsmedium"
                     android:textAllCaps="false">
                 </androidx.appcompat.widget.AppCompatButton>
-
             </RelativeLayout>
 
-
-
-
-
-
-
         </LinearLayout>
-
     </LinearLayout>
 </ScrollView>

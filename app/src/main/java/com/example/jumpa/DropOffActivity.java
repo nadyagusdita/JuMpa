@@ -73,6 +73,24 @@ public class DropOffActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button btnpilih = findViewById(R.id.btn_pilih);
+        btnpilih.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CariOutletActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button btnpesan = findViewById(R.id.btn_pesan);
+        btnpesan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), SelesaikanTransaksiActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

@@ -21,4 +21,20 @@
         <item>12:00 - 15:00</item>
         <item>15:00 - 17:00</item>
     </string-array>
+    <string-array name="item_outlet">
+        <item>Pilih Outlet</item>
+        <item>Nanggalo</item>
+        <item>Kuranji</item>
+        <item>Padang Barat</item>
+        <item>Padang Timur</item>
+        <item>Padang Utara</item>
+        <item>Padang Selatan</item>
+        <item>Pauh</item>
+        <item>Koto Tangah</item>
+        <item>Lubuk Kilangan</item>
+        <item>Lubuk Begalung</item>
+        <item>Bungus Teluk Kabung</item>
+    </string-array>
+    <string name="title_activity_maps">Map</string>
+
 </resources>
