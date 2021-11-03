@@ -51,6 +51,7 @@
             android:layout_marginEnd="25dp">
 
             <EditText
+                android:id="@+id/et_cari"
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:background="@drawable/cardwhitesm"
@@ -62,12 +63,14 @@
                 android:layout_gravity="center_horizontal"
                 />
 
-            <com.google.android.gms.maps.MapView
-                android:layout_marginTop="30dp"
-                android:id="@+id/mapView"
+            <fragment
                 android:layout_width="match_parent"
                 android:layout_height="450dp"
-                android:layout_weight="1" />
+                android:layout_gravity="center_vertical"
+                android:id="@+id/mapView"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_weight="1"
+                android:layout_marginTop="30dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
                 android:id="@+id/btn_pilih"

@@ -4,7 +4,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import java.util.ArrayList;
 
@@ -13,21 +15,30 @@ public class HistoryActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private HistoryAdapter historyAdapter;
     private ArrayList<History> historyArrayList;
+    private HistoryAdapter.RecyclerViewClickListener listener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
 
+        setOnClickListener();
         getData();
-
         recyclerView = findViewById(R.id.recyclerview);
-        historyAdapter = new HistoryAdapter(historyArrayList);
-
+        historyAdapter = new HistoryAdapter(historyArrayList, listener);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(HistoryActivity.this);
-
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(historyAdapter);
+    }
+
+    private void setOnClickListener() {
+        listener = new HistoryAdapter.RecyclerViewClickListener() {
+            @Override
+            public void onClick(View v, int position) {
+                Intent intent = new Intent(getApplicationContext(), DetailHistoryActivity.class);
+                startActivity(intent);
+            }
+        };
     }
 
     public void getData(){

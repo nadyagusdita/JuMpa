@@ -1,12 +1,15 @@
 package com.example.jumpa;
 
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -14,9 +17,11 @@ import java.util.ArrayList;
 public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryViewHolder> {
 
     private ArrayList<History> listHistory;
+    private RecyclerViewClickListener listener;
 
-    public HistoryAdapter(ArrayList<History> listHistory) {
+    public HistoryAdapter(ArrayList<History> listHistory, RecyclerViewClickListener listener) {
         this.listHistory = listHistory;
+        this.listener = listener;
     }
 
     @NonNull
@@ -24,7 +29,6 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     public HistoryAdapter.HistoryViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_history, parent, false);
-
         return new HistoryViewHolder(view);
     }
 
@@ -39,13 +43,23 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
         return (listHistory!=null) ? listHistory.size() : 0;
     }
 
-    public class HistoryViewHolder extends RecyclerView.ViewHolder{
+    public class HistoryViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         private TextView tvTanggaltrk, tvStatus;
+
         public HistoryViewHolder(View view){
             super(view);
-
             tvTanggaltrk = view.findViewById(R.id.tv_tanggaltrk);
             tvStatus = view.findViewById(R.id.tv_status);
+            view.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View v) {
+            listener.onClick(v, getAdapterPosition());
+        }
+    }
+
+    public interface RecyclerViewClickListener{
+        void onClick(View v, int position);
     }
 }

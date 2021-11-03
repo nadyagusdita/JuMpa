@@ -43,6 +43,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        LinearLayout historymenu = findViewById(R.id.historymenu);
+        historymenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), HistoryActivity.class);
+                startActivity(intent);
+            }
+        });
+
         LinearLayout daftarhargamenu = findViewById(R.id.daftarhargamenu);
         daftarhargamenu.setOnClickListener(new View.OnClickListener() {
             @Override
