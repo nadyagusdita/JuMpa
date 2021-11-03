@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
@@ -21,6 +22,15 @@ public class HistoryActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_history);
+
+        Button btn_pilih = findViewById(R.id.btn_pilih);
+        btn_pilih.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
 
         setOnClickListener();
         getData();
@@ -47,7 +57,7 @@ public class HistoryActivity extends AppCompatActivity {
         historyArrayList.add(new History("5 Mei 2021", "Selesai"));
         historyArrayList.add(new History("31 Juni 2022", "Selesai"));
         historyArrayList.add(new History("13 Juli 2022", "Selesai"));
-        historyArrayList.add(new History("13  Agustus 2022", "Selesai"));
+        historyArrayList.add(new History("13 Agustus 2022", "Selesai"));
         historyArrayList.add(new History("23 September 2021", "Selesai"));
         historyArrayList.add(new History("23 November 2021", "Selesai"));
         historyArrayList.add(new History("23 Desember 2021", "Selesai"));
