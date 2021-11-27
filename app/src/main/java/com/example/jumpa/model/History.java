@@ -1,4 +1,4 @@
-package com.example.jumpa;
+package com.example.jumpa.model;
 
 public class History {
     private String tanggaltrk;
