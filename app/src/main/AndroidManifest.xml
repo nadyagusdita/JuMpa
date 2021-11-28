@@ -13,15 +13,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.JuMpa">
-        <activity android:name=".HistoryActivity"></activity>
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
 
-        <activity android:name=".UbahPasswordActivity" />
-        <activity android:name=".LupaPasswordActivity" />
         <activity android:name=".SignUpActivity" />
+        <activity android:name=".HistoryActivity"/>
         <activity android:name=".DetailHistoryActivity" />
         <activity android:name=".DaftarHargaActivity" />
         <activity android:name=".CariAlamatActivity" />
@@ -29,13 +27,13 @@
         <activity android:name=".SelesaikanTransaksiActivity" />
         <activity android:name=".PickUpActivity" />
         <activity android:name=".DropOffActivity" />
-        <activity android:name=".LoginActivity">
+        <activity android:name=".LoginActivity" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

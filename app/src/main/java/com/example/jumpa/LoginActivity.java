@@ -11,14 +11,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jumpa.model.AuthClass;
+import com.example.jumpa.model.AuthData;
 import com.example.jumpa.retrofit.ApiClient;
 import com.example.jumpa.retrofit.ApiInterface;
 
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -26,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
     EditText inputPassword;
     String email, password;
     ApiInterface apiInterface;
+    SessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,14 +53,6 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        TextView lupaPass = findViewById(R.id.txtLupaPassword);
-        lupaPass.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View arg0) {
-                Intent i = new Intent(getApplicationContext(), LupaPasswordActivity.class);
-                startActivity(i);
-            }
-        });
-
     }
 
     private void login(String email, String password) {
@@ -70,7 +62,12 @@ public class LoginActivity extends AppCompatActivity {
         authClassCall.enqueue(new Callback<AuthClass>() {
             @Override
             public void onResponse(Call<AuthClass> call, Response<AuthClass> response) {
-                if (response.body() != null && response.isSuccessful() && response.body().getError() != true){
+                if (response.body() != null && response.isSuccessful() && response.body().isError() != true){
+
+                    sessionManager = new SessionManager(LoginActivity.this);
+                    AuthData authData = response.body().getAuthData();
+                    sessionManager.createLoginSession(authData);
+
                     Toast.makeText(LoginActivity.this, "Login berhasil.", Toast.LENGTH_SHORT).show();
                     Intent i = new Intent(LoginActivity.this, MainActivity.class);
                     startActivity(i);

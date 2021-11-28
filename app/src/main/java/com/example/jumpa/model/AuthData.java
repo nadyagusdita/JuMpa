@@ -1,32 +1,39 @@
-
 package com.example.jumpa.model;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class AuthData {
 
-    @SerializedName("email")
-    @Expose
-    private String email;
-    @SerializedName("user_key")
-    @Expose
-    private String userKey;
+	@SerializedName("unique_id")
+	private String uniqueId;
 
-    public String getEmail() {
-        return email;
-    }
+	@SerializedName("email")
+	private String email;
 
-    public void setEmail(String email) {
-        this.email = email;
-    }
+	@SerializedName("username")
+	private String username;
 
-    public String getUserKey() {
-        return userKey;
-    }
+	public void setUniqueId(String uniqueId){
+		this.uniqueId = uniqueId;
+	}
 
-    public void setUserKey(String userKey) {
-        this.userKey = userKey;
-    }
+	public String getUniqueId(){
+		return uniqueId;
+	}
 
+	public void setEmail(String email){
+		this.email = email;
+	}
+
+	public String getEmail(){
+		return email;
+	}
+
+	public void setUsername(String username){
+		this.username = username;
+	}
+
+	public String getUsername(){
+		return username;
+	}
 }

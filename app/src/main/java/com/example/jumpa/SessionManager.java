@@ -14,24 +14,30 @@ public class SessionManager {
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
 
-    private static final String EMAIL = "email";
-    private static final String ERROR = "error";
+    public static final String IS_LOGGED_IN = "isLoggedIn";
+    public static final String EMAIL = "email";
+    public static final String USERNAME = "username";
+    public static final String UNIQUE_ID = "unique_id";
 
-    public SessionManager(Context _context){
-        this._context = _context;
-        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(_context);
+    public SessionManager(Context context){
+        this._context = context;
+        sharedPreferences = PreferenceManager.getDefaultSharedPreferences(context);
         editor = sharedPreferences.edit();
     }
 
     public void createLoginSession(AuthData user){
-        editor.putBoolean(ERROR, false);
+        editor.putBoolean(IS_LOGGED_IN, true);
         editor.putString(EMAIL, user.getEmail());
+        editor.putString(USERNAME, user.getUsername());
+        editor.putString(UNIQUE_ID, user.getUniqueId());
         editor.commit();
     }
 
     public HashMap<String,String> getUserData(){
         HashMap<String,String> user = new HashMap<>();
         user.put(EMAIL, sharedPreferences.getString(EMAIL, null));
+        user.put(EMAIL, sharedPreferences.getString(USERNAME, null));
+        user.put(EMAIL, sharedPreferences.getString(UNIQUE_ID, null));
         return user;
     }
 
@@ -40,7 +46,7 @@ public class SessionManager {
         editor.commit();
     }
 
-    public boolean isError(){
-        return sharedPreferences.getBoolean(ERROR, true);
+    public boolean isLoggedIn(){
+        return sharedPreferences.getBoolean(IS_LOGGED_IN, false);
     }
 }

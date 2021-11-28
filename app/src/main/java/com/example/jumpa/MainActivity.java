@@ -6,11 +6,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     SessionManager sessionManager;
+//    TextView txtuser;
+//    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,17 +22,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         sessionManager = new SessionManager(MainActivity.this);
-        if(!sessionManager.isError()){
+        if(!sessionManager.isLoggedIn()){
             moveToLogin();
         }
+
+//        txtuser = findViewById(R.id.txtuser);
+//        username = sessionManager.getUserData().get("USERNAME");
+//        txtuser.setText(username);
 
         Button btn_logout = findViewById(R.id.btn_logout);
         btn_logout.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View arg0) {
-                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
-                startActivity(intent);
-                finish();
+                sessionManager.LogoutSession();
+                moveToLogin();
             }
         });
 
@@ -67,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-
     }
 
     private void moveToLogin() {

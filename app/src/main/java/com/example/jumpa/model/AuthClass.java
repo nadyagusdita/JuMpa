@@ -1,32 +1,28 @@
-
 package com.example.jumpa.model;
 
-import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class AuthClass {
+public class AuthClass{
 
-    @SerializedName("error")
-    @Expose
-    private Boolean error;
-    @SerializedName("user")
-    @Expose
-    private AuthData authData;
+	@SerializedName("error")
+	private boolean error;
 
-    public Boolean getError() {
-        return error;
-    }
+	@SerializedName("user")
+	private AuthData authData;
 
-    public void setError(Boolean error) {
-        this.error = error;
-    }
+	public void setError(boolean error){
+		this.error = error;
+	}
 
-    public AuthData getAuthData() {
-        return authData;
-    }
+	public boolean isError(){
+		return error;
+	}
 
-    public void setAuthData(AuthData authData) {
-        this.authData = authData;
-    }
+	public void setAuthData(AuthData authData){
+		this.authData = authData;
+	}
 
+	public AuthData getAuthData(){
+		return authData;
+	}
 }
