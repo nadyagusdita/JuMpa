@@ -13,8 +13,6 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     SessionManager sessionManager;
-//    TextView txtuser;
-//    String username;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
