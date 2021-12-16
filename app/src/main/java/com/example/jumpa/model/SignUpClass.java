@@ -2,13 +2,13 @@ package com.example.jumpa.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class AuthClass {
+public class SignUpClass {
 
 	@SerializedName("error")
 	private boolean error;
 
 	@SerializedName("user")
-	private AuthData authData;
+	private SignUpData signUpData;
 
 	public void setError(boolean error){
 		this.error = error;
@@ -18,11 +18,11 @@ public class AuthClass {
 		return error;
 	}
 
-	public void setAuthData(AuthData authData){
-		this.authData = authData;
+	public void setSignUpData(SignUpData signUpData){
+		this.signUpData = signUpData;
 	}
 
-	public AuthData getAuthData(){
-		return authData;
+	public SignUpData getSignUpData(){
+		return signUpData;
 	}
 }

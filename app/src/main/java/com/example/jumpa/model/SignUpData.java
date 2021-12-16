@@ -2,13 +2,10 @@ package com.example.jumpa.model;
 
 import com.google.gson.annotations.SerializedName;
 
-public class AuthData {
+public class SignUpData {
 
 	@SerializedName("unique_id")
 	private String uniqueId;
-
-	@SerializedName("id")
-	private Integer id;
 
 	@SerializedName("email")
 	private String email;
@@ -22,14 +19,6 @@ public class AuthData {
 
 	public String getUniqueId(){
 		return uniqueId;
-	}
-
-	public void setId(Integer id){
-		this.id = id;
-	}
-
-	public Integer getId(){
-		return id;
 	}
 
 	public void setEmail(String email){

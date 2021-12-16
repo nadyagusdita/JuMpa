@@ -24,7 +24,7 @@
         <activity android:name=".DaftarHargaActivity" />
         <activity android:name=".CariAlamatActivity" />
         <activity android:name=".CariOutletActivity" />
-        <activity android:name=".SelesaikanTransaksiActivity" />
+        <activity android:name=".SelesaikanTransaksiActivity"/>
         <activity android:name=".PickUpActivity" />
         <activity android:name=".DropOffActivity" />
         <activity android:name=".LoginActivity" />

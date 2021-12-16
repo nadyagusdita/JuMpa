@@ -15,6 +15,7 @@ public class SessionManager {
     private SharedPreferences.Editor editor;
 
     public static final String IS_LOGGED_IN = "isLoggedIn";
+    public static final String ID = "id";
     public static final String EMAIL = "email";
     public static final String USERNAME = "username";
     public static final String UNIQUE_ID = "unique_id";
@@ -27,6 +28,7 @@ public class SessionManager {
 
     public void createLoginSession(AuthData user){
         editor.putBoolean(IS_LOGGED_IN, true);
+        editor.putInt(ID, user.getId());
         editor.putString(EMAIL, user.getEmail());
         editor.putString(USERNAME, user.getUsername());
         editor.putString(UNIQUE_ID, user.getUniqueId());
@@ -36,9 +38,14 @@ public class SessionManager {
     public HashMap<String,String> getUserData(){
         HashMap<String,String> user = new HashMap<>();
         user.put(EMAIL, sharedPreferences.getString(EMAIL, null));
-        user.put(EMAIL, sharedPreferences.getString(USERNAME, null));
-        user.put(EMAIL, sharedPreferences.getString(UNIQUE_ID, null));
+        user.put(USERNAME, sharedPreferences.getString(USERNAME, null));
+        user.put(UNIQUE_ID, sharedPreferences.getString(UNIQUE_ID, null));
         return user;
+    }
+
+    public Integer getId(){
+        Integer getId = sharedPreferences.getInt(ID, 0);
+        return getId;
     }
 
     public void LogoutSession(){

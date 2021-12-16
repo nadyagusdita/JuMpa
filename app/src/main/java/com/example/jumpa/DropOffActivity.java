@@ -12,39 +12,64 @@ import android.text.InputType;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.Toast;
+
+import com.example.jumpa.model.SignUpClass;
+import com.example.jumpa.model.TransactionClass;
+import com.example.jumpa.retrofit.ApiClient;
+import com.example.jumpa.retrofit.ApiInterface;
 
 import java.util.Calendar;
+import java.util.HashMap;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class DropOffActivity extends AppCompatActivity {
     DatePickerDialog picker;
     EditText eText;
     Button btnCamera;
     ImageView imageView;
+
+    CheckBox cbkertas, cbplastik, cbbesilogam, cbelektronik, cbkaca, cbkain, cbkermik;
+    EditText eTextTanggal, eTextPonsel;
+    Spinner spinner_time;
+    ApiInterface apiInterface;
+    SessionManager sessionManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drop_off);
 
-        eText= findViewById(R.id.eTextTanggal);
-        eText.setInputType(InputType.TYPE_NULL);
-        eText.setOnClickListener(new View.OnClickListener() {
+        sessionManager = new SessionManager(DropOffActivity.this);
+        Integer getId = sessionManager.getId();
+
+        eTextPonsel = findViewById(R.id.eTextPonsel);
+        spinner_time = findViewById(R.id.spinner_time);
+        eTextTanggal = findViewById(R.id.eTextTanggal);
+
+        eTextTanggal.setInputType(InputType.TYPE_NULL);
+        eTextTanggal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Calendar calendar = Calendar.getInstance();
                 int day = calendar.get(Calendar.DAY_OF_MONTH);
                 int month = calendar.get(Calendar.MONTH);
                 int year = calendar.get(Calendar.YEAR);
-                // date picker dialog
+
                 picker = new DatePickerDialog(DropOffActivity.this, new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                eText.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                eTextTanggal.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
                             }
                         }, year, month, day);
                 picker.show();
@@ -87,12 +112,31 @@ public class DropOffActivity extends AppCompatActivity {
         btnpesan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), HistoryActivity.class);
-                startActivity(intent);
+                cbkertas = findViewById(R.id.cbkertas);
+                cbplastik = findViewById(R.id.cbplastik);
+                cbbesilogam = findViewById(R.id.cbbesilogam);
+                cbelektronik = findViewById(R.id.cbelektornik);
+                cbkain = findViewById(R.id.cbkain);
+                cbkaca = findViewById(R.id.cbkaca);
+                cbkermik = findViewById(R.id.cbkeramik);
+
+                String kategori_sampah = "";
+                if (cbkertas.isChecked()) kategori_sampah = kategori_sampah + "," + cbkertas.getText().toString();
+                if (cbplastik.isChecked()) kategori_sampah = kategori_sampah + "," + cbplastik.getText().toString();
+                if (cbbesilogam.isChecked()) kategori_sampah = kategori_sampah + "," + cbbesilogam.getText().toString();
+                if (cbelektronik.isChecked()) kategori_sampah = kategori_sampah + "," + cbelektronik.getText().toString();
+                if (cbkain.isChecked()) kategori_sampah = kategori_sampah + "," + cbkain.getText().toString();
+                if (cbkaca.isChecked()) kategori_sampah = kategori_sampah + "," + cbkaca.getText().toString();
+                if (cbkermik.isChecked()) kategori_sampah = kategori_sampah + "," + cbkermik.getText().toString();
+
+                String tanggal = eTextTanggal.getText().toString();
+                String waktu = spinner_time.getSelectedItem().toString();
+                String no_ponsel = eTextPonsel.getText().toString();
+
+                transactions(tanggal, waktu, no_ponsel, kategori_sampah, getId);
             }
         });
     }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
@@ -102,4 +146,31 @@ public class DropOffActivity extends AppCompatActivity {
         imageView.setImageBitmap(photo);
         super.onActivityResult(requestCode, resultCode, data);
     }
+
+    private void transactions(String tanggal, String waktu, String no_ponsel, String kategori_sampah, Integer getId) {
+        apiInterface = ApiClient.getClient().create(ApiInterface.class);
+        Call<TransactionClass> transactionClassCall = apiInterface.insertTransaction(tanggal, waktu, no_ponsel, kategori_sampah, getId);
+        transactionClassCall.enqueue(new Callback<TransactionClass>() {
+            @Override
+            public void onResponse(Call<TransactionClass> call, Response<TransactionClass> response) {
+                if (response.body() != null && response.isSuccessful() && response.body().isError() != true){
+                    Toast.makeText(DropOffActivity.this, "Pemesanan berhasil.", Toast.LENGTH_SHORT).show();
+
+                    Intent intent = new Intent(getApplicationContext(), HistoryActivity.class);
+                    startActivity(intent);
+                } else {
+                    Toast.makeText(DropOffActivity.this, "Pemesanan Gagal.", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<TransactionClass> call, Throwable t) {
+                Toast.makeText(DropOffActivity.this, "Gagal terhubung ke server", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+    }
+
+
+
 }
