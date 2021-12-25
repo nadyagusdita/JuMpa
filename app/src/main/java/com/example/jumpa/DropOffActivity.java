@@ -3,12 +3,14 @@ package com.example.jumpa;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,6 +21,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.jumpa.model.SignUpClass;
@@ -38,6 +41,7 @@ public class DropOffActivity extends AppCompatActivity {
     EditText eText;
     Button btnCamera;
     ImageView imageView;
+    TextView textViewAlamat;
 
     CheckBox cbkertas, cbplastik, cbbesilogam, cbelektronik, cbkaca, cbkain, cbkermik;
     EditText eTextTanggal, eTextPonsel;
@@ -45,10 +49,14 @@ public class DropOffActivity extends AppCompatActivity {
     ApiInterface apiInterface;
     SessionManager sessionManager;
 
+    String alamat;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drop_off);
+
+        textViewAlamat = findViewById(R.id.tViewAlamat);
 
         sessionManager = new SessionManager(DropOffActivity.this);
         Integer getId = sessionManager.getId();
@@ -69,7 +77,7 @@ public class DropOffActivity extends AppCompatActivity {
                 picker = new DatePickerDialog(DropOffActivity.this, new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                eTextTanggal.setText(dayOfMonth + "/" + (monthOfYear + 1) + "/" + year);
+                                eTextTanggal.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
                             }
                         }, year, month, day);
                 picker.show();
@@ -103,8 +111,8 @@ public class DropOffActivity extends AppCompatActivity {
         btnpilih.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), CariOutletActivity.class);
-                startActivity(intent);
+                Intent i = new Intent(getApplicationContext(), CariOutletActivity.class);
+                startActivityForResult(i, 123);
             }
         });
 
@@ -120,36 +128,47 @@ public class DropOffActivity extends AppCompatActivity {
                 cbkaca = findViewById(R.id.cbkaca);
                 cbkermik = findViewById(R.id.cbkeramik);
 
+
                 String kategori_sampah = "";
-                if (cbkertas.isChecked()) kategori_sampah = kategori_sampah + "," + cbkertas.getText().toString();
-                if (cbplastik.isChecked()) kategori_sampah = kategori_sampah + "," + cbplastik.getText().toString();
-                if (cbbesilogam.isChecked()) kategori_sampah = kategori_sampah + "," + cbbesilogam.getText().toString();
-                if (cbelektronik.isChecked()) kategori_sampah = kategori_sampah + "," + cbelektronik.getText().toString();
-                if (cbkain.isChecked()) kategori_sampah = kategori_sampah + "," + cbkain.getText().toString();
-                if (cbkaca.isChecked()) kategori_sampah = kategori_sampah + "," + cbkaca.getText().toString();
-                if (cbkermik.isChecked()) kategori_sampah = kategori_sampah + "," + cbkermik.getText().toString();
+                if (cbkertas.isChecked()) kategori_sampah = kategori_sampah + "," + cbkertas.getText();
+                if (cbplastik.isChecked()) kategori_sampah = kategori_sampah + "," + cbplastik.getText();
+                if (cbbesilogam.isChecked()) kategori_sampah = kategori_sampah + "," + cbbesilogam.getText();
+                if (cbelektronik.isChecked()) kategori_sampah = kategori_sampah + "," + cbelektronik.getText();
+                if (cbkain.isChecked()) kategori_sampah = kategori_sampah + "," + cbkain.getText();
+                if (cbkaca.isChecked()) kategori_sampah = kategori_sampah + "," + cbkaca.getText();
+                if (cbkermik.isChecked()) kategori_sampah = kategori_sampah + "," + cbkermik.getText();
 
                 String tanggal = eTextTanggal.getText().toString();
                 String waktu = spinner_time.getSelectedItem().toString();
                 String no_ponsel = eTextPonsel.getText().toString();
+                String id = getId.toString();
 
-                transactions(tanggal, waktu, no_ponsel, kategori_sampah, getId);
+                transactions(tanggal, waktu, no_ponsel, kategori_sampah, id);
             }
         });
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        imageView = findViewById(R.id.click_image);
-        Bundle bundle = data.getExtras();
-        Bitmap photo = (Bitmap) bundle.get("data");
-        imageView.setImageBitmap(photo);
         super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == 123) {
+            if(resultCode == RESULT_OK) {
+                String alamat = data.getStringExtra("address");
+                textViewAlamat.setText(alamat);
+            }
+        }
+        if(requestCode == 101) {
+            imageView = findViewById(R.id.click_image);
+            Bundle bundle = data.getExtras();
+            Bitmap photo = (Bitmap) bundle.get("data");
+            imageView.setImageBitmap(photo);
+        }
+
     }
 
-    private void transactions(String tanggal, String waktu, String no_ponsel, String kategori_sampah, Integer getId) {
+    private void transactions(String tanggal, String waktu, String no_ponsel, String kategori_sampah, String id) {
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<TransactionClass> transactionClassCall = apiInterface.insertTransaction(tanggal, waktu, no_ponsel, kategori_sampah, getId);
+        Call<TransactionClass> transactionClassCall = apiInterface.insertTransaction(tanggal, waktu, no_ponsel, kategori_sampah, id);
         transactionClassCall.enqueue(new Callback<TransactionClass>() {
             @Override
             public void onResponse(Call<TransactionClass> call, Response<TransactionClass> response) {

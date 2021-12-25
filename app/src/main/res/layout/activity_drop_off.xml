@@ -104,6 +104,8 @@
 
                 <CheckBox
                     android:id="@+id/cbkertas"
+                    android:text="Kertas"
+                    android:textSize="0dp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true" />
@@ -134,6 +136,8 @@
 
                 <CheckBox
                     android:id="@+id/cbplastik"
+                    android:text="Plastik"
+                    android:textSize="0dp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"/>
@@ -164,6 +168,8 @@
 
                 <CheckBox
                     android:id="@+id/cbbesilogam"
+                    android:text="Besi/Logam"
+                    android:textSize="0dp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"/>
@@ -193,6 +199,8 @@
 
                 <CheckBox
                     android:id="@+id/cbelektornik"
+                    android:text="Elektronik"
+                    android:textSize="0dp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"/>
@@ -223,6 +231,8 @@
 
                 <CheckBox
                     android:id="@+id/cbkaca"
+                    android:text="Kaca"
+                    android:textSize="0dp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"/>
@@ -252,6 +262,8 @@
 
                 <CheckBox
                     android:id="@+id/cbkain"
+                    android:text="Kain"
+                    android:textSize="0dp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"/>
@@ -281,6 +293,8 @@
 
                 <CheckBox
                     android:id="@+id/cbkeramik"
+                    android:text="Keramik"
+                    android:textSize="0dp"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:layout_alignParentRight="true"/>

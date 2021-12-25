@@ -33,7 +33,7 @@ public interface ApiInterface {
             @Field("waktu") String waktu,
             @Field("no_ponsel") String no_ponsel,
             @Field("kategori_sampah") String kategori_sampah,
-            @Field("user_id") Integer user_id
+            @Field("user_id") String user_id
     );
 
 }
