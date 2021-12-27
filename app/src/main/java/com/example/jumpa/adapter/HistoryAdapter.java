@@ -1,6 +1,7 @@
 package com.example.jumpa.adapter;
 
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,6 +23,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     public HistoryAdapter(ArrayList<History> listHistory, RecyclerViewClickListener listener) {
         this.listHistory = listHistory;
         this.listener = listener;
+        notifyDataSetChanged();
     }
 
     @NonNull
@@ -55,7 +57,7 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
 
         @Override
         public void onClick(View v) {
-            listener.onClick(v, getAdapterPosition());
+            listener.onClick(v, getLayoutPosition());
         }
     }
 
