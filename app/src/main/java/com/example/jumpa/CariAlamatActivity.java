@@ -46,8 +46,10 @@ public class CariAlamatActivity extends FragmentActivity implements OnMapReadyCa
         btn_pilih.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), PickUpActivity.class);
-                startActivity(intent);
+                Intent intent = new Intent();
+                intent.putExtra("address", "Desa Balai Naras");
+                setResult(RESULT_OK, intent);
+                finish();
             }
         });
 

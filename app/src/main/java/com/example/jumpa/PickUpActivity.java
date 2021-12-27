@@ -59,8 +59,8 @@ public class PickUpActivity extends AppCompatActivity {
         spinner_time = findViewById(R.id.spinner_time);
         eTextTanggal = findViewById(R.id.eTextTanggal);
 
-        eText.setInputType(InputType.TYPE_NULL);
-        eText.setOnClickListener(new View.OnClickListener() {
+        eTextTanggal.setInputType(InputType.TYPE_NULL);
+        eTextTanggal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 final Calendar calendar = Calendar.getInstance();
@@ -71,7 +71,7 @@ public class PickUpActivity extends AppCompatActivity {
                 picker = new DatePickerDialog(PickUpActivity.this, new DatePickerDialog.OnDateSetListener() {
                             @Override
                             public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
-                                eText.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
+                                eTextTanggal.setText(year + "-" + (monthOfYear + 1) + "-" + dayOfMonth);
                             }
                         }, year, month, day);
                 picker.show();
