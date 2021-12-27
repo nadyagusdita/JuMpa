@@ -3,6 +3,7 @@ package com.example.jumpa.retrofit;
 import com.example.jumpa.model.AuthClass;
 import com.example.jumpa.model.SignUpClass;
 import com.example.jumpa.model.TransactionClass;
+import com.example.jumpa.model.TransaksiResponse;
 
 import retrofit2.Call;
 import retrofit2.http.Field;
@@ -34,6 +35,12 @@ public interface ApiInterface {
             @Field("no_ponsel") String no_ponsel,
             @Field("kategori_sampah") String kategori_sampah,
             @Field("user_id") String user_id
+    );
+
+    @FormUrlEncoded
+    @POST("getTransaksi.php")
+    Call<TransaksiResponse> getTransaksi(
+            @Field("user_id") Integer user_id
     );
 
 }
