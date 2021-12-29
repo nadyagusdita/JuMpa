@@ -67,6 +67,13 @@ public class HistoryActivity extends AppCompatActivity {
                 String status = historyArrayList.get(position).getStatus();
                 if(status.equals("Selesai")){
                     Intent intent = new Intent(getApplicationContext(), DetailHistoryActivity.class);
+                    intent.putExtra("id", listTransaksi.get(position).getId());
+                    intent.putExtra("tanggal", listTransaksi.get(position).getTanggal());
+                    intent.putExtra("waktu", listTransaksi.get(position).getWaktu());
+                    intent.putExtra("noponsel", listTransaksi.get(position).getNoPonsel());
+                    intent.putExtra("katgorisampah", listTransaksi.get(position).getKategoriSampah());
+                    intent.putExtra("berattotal", listTransaksi.get(position).getBeratTotal().toString());
+                    intent.putExtra("totalharga", listTransaksi.get(position).getTotalHarga().toString());
                     startActivity(intent);
                 } else if (status.equals("Menunggu")){
                     Intent intent = new Intent(getApplicationContext(), SelesaikanTransaksiActivity.class);
