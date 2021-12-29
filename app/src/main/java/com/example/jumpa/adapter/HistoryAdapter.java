@@ -2,12 +2,14 @@ package com.example.jumpa.adapter;
 
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.jumpa.R;
@@ -38,6 +40,12 @@ public class HistoryAdapter extends RecyclerView.Adapter<HistoryAdapter.HistoryV
     public void onBindViewHolder(@NonNull HistoryAdapter.HistoryViewHolder holder, int position) {
         holder.tvTanggaltrk.setText(listHistory.get(position).getTanggaltrk());
         holder.tvStatus.setText(listHistory.get(position).getStatus());
+
+        if(listHistory.get(position).getStatus().equals("Menunggu")) {
+            View itemView = holder.itemView;
+            CardView cardView = (CardView) itemView.findViewById(R.id.cardview);
+            cardView.setCardBackgroundColor(Color.parseColor("#868686"));
+        }
     }
 
     @Override

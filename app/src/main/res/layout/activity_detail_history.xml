@@ -85,15 +85,16 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/tvId"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginStart="110dp"
+                    android:layout_marginStart="95dp"
                     android:layout_toRightOf="@+id/NoPesanan"
                     android:fontFamily="@font/poppinsmedium"
                     android:text="SAM01"
-                    android:textSize="14sp"
-                    android:textColor="#646D80" />
+                    android:textColor="#646D80"
+                    android:textSize="14sp" />
             </RelativeLayout>
 
             <RelativeLayout
@@ -114,10 +115,11 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/tvTanggal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginStart="135dp"
+                    android:layout_marginStart="121dp"
                     android:layout_toRightOf="@+id/lblTanggal"
                     android:fontFamily="@font/poppinsmedium"
                     android:text="23 September 2021"
@@ -143,10 +145,11 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/tvWaktu"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginStart="148dp"
+                    android:layout_marginStart="133dp"
                     android:layout_toRightOf="@+id/lblWaktu"
                     android:fontFamily="@font/poppinsmedium"
                     android:text="08:00 - 12:00"
@@ -172,10 +175,11 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/tvNoPonsel"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginStart="120dp"
+                    android:layout_marginStart="106dp"
                     android:layout_toRightOf="@+id/lblNoPonsel"
                     android:fontFamily="@font/poppinsmedium"
                     android:text="08xxxxxxxxxx"
@@ -201,10 +205,11 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/tvkategori"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
-                    android:layout_marginStart="65dp"
+                    android:layout_marginStart="52dp"
                     android:layout_toRightOf="@+id/lblKategori"
                     android:fontFamily="@font/poppinsmedium"
                     android:text="Plastik"
@@ -230,12 +235,13 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/tvBeratTotal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:fontFamily="@font/poppinsmedium"
                     android:text="12 Kg"
-                    android:layout_marginStart="114dp"
+                    android:layout_marginStart="100dp"
                     android:layout_toRightOf="@+id/lblBerat"
                     android:textSize="14sp"
                     android:textColor="#646D80" />
@@ -260,11 +266,12 @@
                     android:textSize="14sp" />
 
                 <TextView
+                    android:id="@+id/tvTotalHarga"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:fontFamily="@font/poppinsmedium"
-                    android:layout_marginStart="108dp"
+                    android:layout_marginStart="95dp"
                     android:layout_toRightOf="@+id/lblTotalHarga"
                     android:text="Rp36.000"
                     android:textSize="14sp"

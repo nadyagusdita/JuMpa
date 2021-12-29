@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 public class DataItem{
 
 	@SerializedName("berat_total")
-	private Object beratTotal;
+	private String beratTotal;
 
 	@SerializedName("foto_sampah")
 	private Object fotoSampah;
@@ -20,7 +20,7 @@ public class DataItem{
 	private String waktu;
 
 	@SerializedName("total_harga")
-	private Object totalHarga;
+	private String totalHarga;
 
 	@SerializedName("id")
 	private String id;
@@ -40,7 +40,7 @@ public class DataItem{
 	@SerializedName("status")
 	private Object status;
 
-	public void setBeratTotal(Object beratTotal){
+	public void setBeratTotal(String beratTotal){
 		this.beratTotal = beratTotal;
 	}
 
@@ -80,7 +80,7 @@ public class DataItem{
 		return waktu;
 	}
 
-	public void setTotalHarga(Object totalHarga){
+	public void setTotalHarga(String totalHarga){
 		this.totalHarga = totalHarga;
 	}
 

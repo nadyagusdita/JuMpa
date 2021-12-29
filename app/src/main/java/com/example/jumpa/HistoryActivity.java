@@ -1,10 +1,13 @@
 package com.example.jumpa;
 
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -65,18 +68,20 @@ public class HistoryActivity extends AppCompatActivity {
             @Override
             public void onClick(View v, int position) {
                 String status = historyArrayList.get(position).getStatus();
+                String ID = listTransaksi.get(position).getId();
                 if(status.equals("Selesai")){
                     Intent intent = new Intent(getApplicationContext(), DetailHistoryActivity.class);
-                    intent.putExtra("id", listTransaksi.get(position).getId());
+                    intent.putExtra("ID", ID);
                     intent.putExtra("tanggal", listTransaksi.get(position).getTanggal());
                     intent.putExtra("waktu", listTransaksi.get(position).getWaktu());
                     intent.putExtra("noponsel", listTransaksi.get(position).getNoPonsel());
-                    intent.putExtra("katgorisampah", listTransaksi.get(position).getKategoriSampah());
+                    intent.putExtra("kategorisampah", listTransaksi.get(position).getKategoriSampah());
                     intent.putExtra("berattotal", listTransaksi.get(position).getBeratTotal().toString());
                     intent.putExtra("totalharga", listTransaksi.get(position).getTotalHarga().toString());
                     startActivity(intent);
                 } else if (status.equals("Menunggu")){
                     Intent intent = new Intent(getApplicationContext(), SelesaikanTransaksiActivity.class);
+                    intent.putExtra("ID", ID);
                     startActivity(intent);
                 }
             }

@@ -104,6 +104,7 @@
 
                 <EditText
                     android:id="@+id/eTextKertas"
+                    android:text="0"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_alignParentRight="true"
@@ -148,6 +149,7 @@
 
                 <EditText
                     android:id="@+id/eTextPlastik"
+                    android:text="0"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_alignParentRight="true"
@@ -192,6 +194,7 @@
 
                 <EditText
                     android:id="@+id/eTextBesiLogam"
+                    android:text="0"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_alignParentRight="true"
@@ -235,6 +238,7 @@
 
                 <EditText
                     android:id="@+id/eTextElektronik"
+                    android:text="0"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_alignParentRight="true"
@@ -279,6 +283,7 @@
 
                 <EditText
                     android:id="@+id/eTextKaca"
+                    android:text="0"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_alignParentRight="true"
@@ -323,6 +328,7 @@
 
                 <EditText
                     android:id="@+id/eTextKain"
+                    android:text="0"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_alignParentRight="true"
@@ -366,6 +372,7 @@
 
                 <EditText
                     android:id="@+id/eTextKeramik"
+                    android:text="0"
                     android:layout_width="60dp"
                     android:layout_height="25dp"
                     android:layout_alignParentRight="true"

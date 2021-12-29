@@ -18,10 +18,9 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-
 public class SelesaikanTransaksiActivity extends AppCompatActivity {
     ApiInterface apiInterface;
-
+    Integer ID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,23 +55,20 @@ public class SelesaikanTransaksiActivity extends AppCompatActivity {
                 Integer kain = Integer.valueOf(etKain.getText().toString());
                 Integer keramik = Integer.valueOf(etKeramik.getText().toString());
 
-                Integer berattotal = kertas+plastik+besilogam+elektronik+kaca+kain+keramik;
+                Integer berattotal = kertas + plastik + besilogam + elektronik + kaca + kain + keramik;
                 Integer totalharga = (kertas*2500)+(plastik*3000)+(besilogam*5000)+(elektronik*30000)
-                                    +(kaca*20000)+(kain*30000)+(keramik*10000);
+                        +(kaca*20000)+(kain*30000)+(keramik*10000);
 
-                Integer ID = Integer.valueOf(getIntent().getStringExtra("ID"));
+                ID = Integer.valueOf(getIntent().getStringExtra("ID"));
                 String status = "Selesai";
-                eTransaksi(ID,berattotal,totalharga,status);
-
-                Intent intent = new Intent(getApplicationContext(), DetailHistoryActivity.class);
-                startActivity(intent);
+                eTransaksi(ID, berattotal, totalharga, status);
             }
         });
     }
 
     private void eTransaksi(Integer id, Integer berattotal, Integer totalharga, String status) {
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<EditTransaksi> editTransaksiCall = apiInterface.eTransaksi(id,berattotal,totalharga,status);
+        Call<EditTransaksi> editTransaksiCall = apiInterface.eTransaksi(id, berattotal, totalharga, status);
         editTransaksiCall.enqueue(new Callback<EditTransaksi>() {
             @Override
             public void onResponse(Call<EditTransaksi> call, Response<EditTransaksi> response) {

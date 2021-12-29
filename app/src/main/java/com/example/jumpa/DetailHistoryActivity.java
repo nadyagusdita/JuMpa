@@ -8,36 +8,25 @@ import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-import com.example.jumpa.model.DataItem;
-import com.example.jumpa.model.History;
-import com.example.jumpa.model.TransaksiResponse;
-import com.example.jumpa.retrofit.ApiInterface;
-
-import java.util.List;
-import java.util.StringJoiner;
-
 public class DetailHistoryActivity extends AppCompatActivity {
-    TextView tvid,tvtanggal,tvwaktu,tvnoponsel,tvkategorisampah,tvberattotal,tvtotalharga;
-    String id,tanggal,waktu,noponsel,kategorisampah,berattotal,totalharga;
-    private List<DataItem> listTransaksi;
-    private TransaksiResponse transaksiResponse;
-    ApiInterface apiInterface;
+    TextView tvid, tvtanggal, tvwaktu, tvnoponsel, tvkategorisampah, tvberattotal, tvtotalharga;
+    String id, tanggal, waktu, noponsel, kategorisampah, berattotal, totalharga;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail_history);
 
-        tvid = findViewById(R.id.tvid);
-        tvtanggal = findViewById(R.id.tvtanggal);
-        tvwaktu = findViewById(R.id.tvwaktu);
-        tvnoponsel = findViewById(R.id.tvnoponsel);
-        tvkategorisampah = findViewById(R.id.tvkategorisampah);
-        tvberattotal = findViewById(R.id.tvberattotal);
-        tvtotalharga = findViewById(R.id.tvtotalharga);
+        tvid = findViewById(R.id.tvId);
+        tvtanggal = findViewById(R.id.tvTanggal);
+        tvwaktu = findViewById(R.id.tvWaktu);
+        tvnoponsel = findViewById(R.id.tvNoPonsel);
+        tvkategorisampah = findViewById(R.id.tvkategori);
+        tvberattotal = findViewById(R.id.tvBeratTotal);
+        tvtotalharga = findViewById(R.id.tvTotalHarga);
 
         Bundle extras = getIntent().getExtras();
-        id = extras.getString("id");
+        id = extras.getString("ID");
         tanggal = extras.getString("tanggal");
         waktu = extras.getString("waktu");
         noponsel = extras.getString("noponsel");
@@ -45,13 +34,13 @@ public class DetailHistoryActivity extends AppCompatActivity {
         berattotal = extras.getString("berattotal");
         totalharga = extras.getString("totalharga");
 
-        tvid.setText(id);
+        tvid.setText("SAM" + id);
         tvtanggal.setText(tanggal);
-        tvwaktu.setText(waktu);
+        tvwaktu.setText(waktu + " WIB");
         tvnoponsel.setText(noponsel);
         tvkategorisampah.setText(kategorisampah);
-        tvberattotal.setText(berattotal);
-        tvtotalharga.setText(totalharga);
+        tvberattotal.setText(berattotal + " Kg");
+        tvtotalharga.setText("Rp" + totalharga);
 
         ImageButton arrow_back = findViewById(R.id.arrow_back);
         arrow_back.setOnClickListener(new View.OnClickListener() {
