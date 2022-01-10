@@ -435,10 +435,9 @@
                     android:background="@drawable/btn_green"
                     android:layout_below="@+id/btn_pilih"
                     android:textColor="@color/white"
-                    android:paddingStart="25dp"
-                    android:paddingEnd="25dp"
+                    android:padding="10dp"
                     android:fontFamily="@font/poppinsregular"
-                    android:textSize="15dp"
+                    android:textSize="13dp"
                     android:layout_marginTop="10dp"/>
 
                 <androidx.appcompat.widget.AppCompatButton

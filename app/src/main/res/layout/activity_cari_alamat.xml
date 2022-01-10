@@ -61,6 +61,8 @@
                 android:hint="Cari"
                 android:paddingStart="25dp"
                 android:layout_gravity="center_horizontal"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
                 />
 
             <fragment

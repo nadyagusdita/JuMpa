@@ -1,11 +1,13 @@
 package com.example.jumpa;
 
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -24,6 +26,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.jumpa.model.TransactionClass;
 import com.example.jumpa.retrofit.ApiClient;
 import com.example.jumpa.retrofit.ApiInterface;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 
 import java.util.Calendar;
 
@@ -44,11 +48,17 @@ public class PickUpActivity extends AppCompatActivity {
     ApiInterface apiInterface;
     SessionManager sessionManager;
 
-    String alamat;
+    private static final String TAG = "PickUpActivity";
+    private static final int ERROR_DIALOG_REQUEST = 9001;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pick_up);
+
+        if(isServicesOK()){
+            init();
+        }
 
         textViewAlamat = findViewById(R.id.tViewAlamat);
 
@@ -101,15 +111,6 @@ public class PickUpActivity extends AppCompatActivity {
             }
         });
 
-        Button btnpilih = findViewById(R.id.btn_pilih);
-        btnpilih.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), CariAlamatActivity.class);
-                startActivityForResult(i, 456);
-            }
-        });
-
         Button btnpesan = findViewById(R.id.btn_pesan);
         btnpesan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -138,6 +139,17 @@ public class PickUpActivity extends AppCompatActivity {
                 String id = getId.toString();
 
                 transactions(tanggal, waktu, no_ponsel, kategori_sampah, id);
+            }
+        });
+    }
+
+    private void init() {
+        Button btnpilih = findViewById(R.id.btn_pilih);
+        btnpilih.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), CariAlamatActivity.class);
+                startActivityForResult(i, 456);
             }
         });
     }
@@ -181,6 +193,22 @@ public class PickUpActivity extends AppCompatActivity {
                 Toast.makeText(PickUpActivity.this, "Gagal terhubung ke server", Toast.LENGTH_SHORT).show();
             }
         });
+    }
 
+    public boolean isServicesOK(){
+        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(PickUpActivity.this);
+
+        if(available == ConnectionResult.SUCCESS){
+            Log.d(TAG, "isServicesOK: Google Play Services is working");
+            return true;
+        }
+        else if(GoogleApiAvailability.getInstance().isUserResolvableError(available)){
+            Log.d(TAG, "isServicesOK: an error occured but we can fix it");
+            Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(PickUpActivity.this, available, ERROR_DIALOG_REQUEST);
+            dialog.show();
+        }else{
+            Toast.makeText(this, "You can't make map requests", Toast.LENGTH_SHORT).show();
+        }
+        return false;
     }
 }
