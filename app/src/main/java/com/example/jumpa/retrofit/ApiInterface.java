@@ -1,6 +1,7 @@
 package com.example.jumpa.retrofit;
 
 import com.example.jumpa.model.AuthClass;
+import com.example.jumpa.model.DashboardResponse;
 import com.example.jumpa.model.EditTransaksi;
 import com.example.jumpa.model.SignUpClass;
 import com.example.jumpa.model.TransactionClass;
@@ -51,6 +52,12 @@ public interface ApiInterface {
             @Field("berat_total") Integer berat_total,
             @Field("total_harga") Integer total_harga,
             @Field("status") String status
+    );
+
+    @FormUrlEncoded
+    @POST("dataDashboard.php")
+    Call<DashboardResponse> dataDashboard(
+            @Field("user_id") Integer user_id
     );
 
 }
