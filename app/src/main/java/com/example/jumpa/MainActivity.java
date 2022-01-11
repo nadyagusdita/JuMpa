@@ -120,10 +120,6 @@ public class MainActivity extends AppCompatActivity {
 
                     tvSaldo.setText("Rp " + saldo);
                     tvBerat.setText(berat + " Kg");
-<<<<<<< HEAD
-
-=======
->>>>>>> 181ebd7de8b82a152648dd0a98d2b0c766ce28aa
                 }
             }
 

@@ -68,20 +68,13 @@ public class SelesaikanTransaksiActivity extends AppCompatActivity {
                 ID = Integer.valueOf(getIntent().getStringExtra("ID"));
                 String status = "Selesai";
                 eTransaksi(ID, berattotal, totalharga, status);
-<<<<<<< HEAD
-                
-=======
 
->>>>>>> 181ebd7de8b82a152648dd0a98d2b0c766ce28aa
                 showNotification();
             }
         });
     }
 
-<<<<<<< HEAD
-=======
 
->>>>>>> 181ebd7de8b82a152648dd0a98d2b0c766ce28aa
     private void showNotification(){
         NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
 
@@ -114,10 +107,7 @@ public class SelesaikanTransaksiActivity extends AppCompatActivity {
 
     }
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 181ebd7de8b82a152648dd0a98d2b0c766ce28aa
     private void eTransaksi(Integer id, Integer berattotal, Integer totalharga, String status) {
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         Call<EditTransaksi> editTransaksiCall = apiInterface.eTransaksi(id, berattotal, totalharga, status);

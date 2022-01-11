@@ -10,11 +10,7 @@ public class DashboardResponse{
 	@SerializedName("error")
 	private boolean error;
 
-<<<<<<< HEAD
-	public void setDataDashboard(DataDashboard dataDashboard){
-=======
 	public void setData(DataDashboard dataDashboard){
->>>>>>> 181ebd7de8b82a152648dd0a98d2b0c766ce28aa
 		this.dataDashboard = dataDashboard;
 	}
 
