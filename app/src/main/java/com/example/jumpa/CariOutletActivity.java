@@ -61,6 +61,7 @@ public class CariOutletActivity extends FragmentActivity implements OnMapReadyCa
         spinnerOutlet = findViewById(R.id.spinner_outlet);
 
         getLocationPermission();
+
         ImageButton arrow_back = findViewById(R.id.arrow_back);
         arrow_back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,6 +90,8 @@ public class CariOutletActivity extends FragmentActivity implements OnMapReadyCa
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
         if (mLocationPermissionsGranted) {
             getDeviceLocation();
 
@@ -101,22 +104,23 @@ public class CariOutletActivity extends FragmentActivity implements OnMapReadyCa
             mMap.getUiSettings().setMyLocationButtonEnabled(false);
 
             init();
-            }
         }
+    }
+
     private void init(){
-    spinnerOutlet.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-        @Override
-        public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
-            geoLocate();
-        }
+        spinnerOutlet.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id) {
+                geoLocate();
+            }
 
-        @Override
-        public void onNothingSelected(AdapterView<?> parentView) {
-            // your code here
-        }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView) {
+                // your code here
+            }
 
-    });
-}
+        });
+    }
 
     private void geoLocate(){
         String outlet = spinnerOutlet.getSelectedItem().toString();
@@ -223,6 +227,11 @@ public class CariOutletActivity extends FragmentActivity implements OnMapReadyCa
             mMap.addMarker(options);
         }
     }
+
+
+
+
+
 
 
 //    @Override

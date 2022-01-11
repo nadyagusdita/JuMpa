@@ -1,8 +1,14 @@
 package com.example.jumpa;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -62,10 +68,56 @@ public class SelesaikanTransaksiActivity extends AppCompatActivity {
                 ID = Integer.valueOf(getIntent().getStringExtra("ID"));
                 String status = "Selesai";
                 eTransaksi(ID, berattotal, totalharga, status);
+<<<<<<< HEAD
+                
+=======
+
+>>>>>>> 181ebd7de8b82a152648dd0a98d2b0c766ce28aa
+                showNotification();
             }
         });
     }
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 181ebd7de8b82a152648dd0a98d2b0c766ce28aa
+    private void showNotification(){
+        NotificationManager notificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel channel = new NotificationChannel(
+                    "com.example.jumpa",
+                    "Channel Notifikasi Jumpa App",
+                    NotificationManager.IMPORTANCE_DEFAULT
+            );
+            notificationManager.createNotificationChannel(channel);
+        }
+
+        Intent historyIntent = new Intent(getApplicationContext(), HistoryActivity.class);
+        PendingIntent historyPendingIntent = PendingIntent.getActivity(
+                getApplicationContext(),
+                12231,
+                historyIntent,
+                PendingIntent.FLAG_UPDATE_CURRENT
+        );
+
+        Notification notif =
+                new NotificationCompat.Builder(this, "com.example.jumpa.CH01")
+                        .setSmallIcon(R.drawable.jumpa)
+                        .setContentTitle("Transaksi berhasil!")
+                        .setContentText("Transaksi penjualan sampah anda sudah selesai.")
+                        .setContentIntent(historyPendingIntent)
+                        .build();
+
+        notificationManager.notify(123, notif);
+
+    }
+
+<<<<<<< HEAD
+
+=======
+>>>>>>> 181ebd7de8b82a152648dd0a98d2b0c766ce28aa
     private void eTransaksi(Integer id, Integer berattotal, Integer totalharga, String status) {
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
         Call<EditTransaksi> editTransaksiCall = apiInterface.eTransaksi(id, berattotal, totalharga, status);

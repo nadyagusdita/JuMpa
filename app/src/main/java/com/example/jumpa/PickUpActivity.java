@@ -48,7 +48,7 @@ public class PickUpActivity extends AppCompatActivity {
     ApiInterface apiInterface;
     SessionManager sessionManager;
 
-    private static final String TAG = "PickUpActivity";
+    String alamat;
     private static final int ERROR_DIALOG_REQUEST = 9001;
 
     @Override
@@ -123,7 +123,6 @@ public class PickUpActivity extends AppCompatActivity {
                 cbkaca = findViewById(R.id.cbkaca);
                 cbkermik = findViewById(R.id.cbkeramik);
 
-
                 String kategori_sampah = "";
                 if (cbkertas.isChecked()) kategori_sampah = kategori_sampah + "," + cbkertas.getText();
                 if (cbplastik.isChecked()) kategori_sampah = kategori_sampah + "," + cbplastik.getText();
@@ -136,9 +135,11 @@ public class PickUpActivity extends AppCompatActivity {
                 String tanggal = eTextTanggal.getText().toString();
                 String waktu = spinner_time.getSelectedItem().toString();
                 String no_ponsel = eTextPonsel.getText().toString();
+                String alamat = textViewAlamat.getText().toString();
                 String id = getId.toString();
 
-                transactions(tanggal, waktu, no_ponsel, kategori_sampah, id);
+                transactions(tanggal, waktu, no_ponsel, kategori_sampah, alamat, id);
+                Log.d("KS", kategori_sampah);
             }
         });
     }
@@ -172,9 +173,9 @@ public class PickUpActivity extends AppCompatActivity {
         }
     }
 
-    private void transactions(String tanggal, String waktu, String no_ponsel, String kategori_sampah, String id) {
+    private void transactions(String tanggal, String waktu, String no_ponsel, String kategori_sampah, String alamat, String id) {
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<TransactionClass> transactionClassCall = apiInterface.insertTransaction(tanggal, waktu, no_ponsel, kategori_sampah, id);
+        Call<TransactionClass> transactionClassCall = apiInterface.insertTransaction(tanggal, waktu, no_ponsel, kategori_sampah, alamat, id);
         transactionClassCall.enqueue(new Callback<TransactionClass>() {
             @Override
             public void onResponse(Call<TransactionClass> call, Response<TransactionClass> response) {
@@ -199,11 +200,9 @@ public class PickUpActivity extends AppCompatActivity {
         int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(PickUpActivity.this);
 
         if(available == ConnectionResult.SUCCESS){
-            Log.d(TAG, "isServicesOK: Google Play Services is working");
             return true;
         }
         else if(GoogleApiAvailability.getInstance().isUserResolvableError(available)){
-            Log.d(TAG, "isServicesOK: an error occured but we can fix it");
             Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(PickUpActivity.this, available, ERROR_DIALOG_REQUEST);
             dialog.show();
         }else{
@@ -211,4 +210,7 @@ public class PickUpActivity extends AppCompatActivity {
         }
         return false;
     }
+
+
+
 }

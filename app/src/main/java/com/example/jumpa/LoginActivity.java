@@ -71,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
                     startActivity(i);
                     finish();
                 } else {
-                    Toast.makeText(LoginActivity.this, "Login gagal.", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LoginActivity.this, "Kombinasi email/ password anda salah.", Toast.LENGTH_SHORT).show();
                 }
             }
 

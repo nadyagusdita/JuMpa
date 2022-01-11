@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
@@ -28,6 +29,8 @@ import com.example.jumpa.model.SignUpClass;
 import com.example.jumpa.model.TransactionClass;
 import com.example.jumpa.retrofit.ApiClient;
 import com.example.jumpa.retrofit.ApiInterface;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GoogleApiAvailability;
 
 import java.util.Calendar;
 import java.util.HashMap;
@@ -50,11 +53,16 @@ public class DropOffActivity extends AppCompatActivity {
     SessionManager sessionManager;
 
     String alamat;
+    private static final int ERROR_DIALOG_REQUEST = 9001;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_drop_off);
+
+        if(isServicesOK()){
+            init();
+        }
 
         textViewAlamat = findViewById(R.id.tViewAlamat);
 
@@ -107,15 +115,6 @@ public class DropOffActivity extends AppCompatActivity {
             }
         });
 
-        Button btnpilih = findViewById(R.id.btn_pilih);
-        btnpilih.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), CariOutletActivity.class);
-                startActivityForResult(i, 123);
-            }
-        });
-
         Button btnpesan = findViewById(R.id.btn_pesan);
         btnpesan.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,7 +126,6 @@ public class DropOffActivity extends AppCompatActivity {
                 cbkain = findViewById(R.id.cbkain);
                 cbkaca = findViewById(R.id.cbkaca);
                 cbkermik = findViewById(R.id.cbkeramik);
-
 
                 String kategori_sampah = "";
                 if (cbkertas.isChecked()) kategori_sampah = kategori_sampah + "," + cbkertas.getText();
@@ -141,9 +139,21 @@ public class DropOffActivity extends AppCompatActivity {
                 String tanggal = eTextTanggal.getText().toString();
                 String waktu = spinner_time.getSelectedItem().toString();
                 String no_ponsel = eTextPonsel.getText().toString();
+                String alamat = textViewAlamat.getText().toString();
                 String id = getId.toString();
 
-                transactions(tanggal, waktu, no_ponsel, kategori_sampah, id);
+                transactions(tanggal, waktu, no_ponsel, kategori_sampah, alamat, id);
+            }
+        });
+    }
+
+    private void init() {
+        Button btnpilih = findViewById(R.id.btn_pilih);
+        btnpilih.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), CariOutletActivity.class);
+                startActivityForResult(i, 123);
             }
         });
     }
@@ -166,9 +176,9 @@ public class DropOffActivity extends AppCompatActivity {
 
     }
 
-    private void transactions(String tanggal, String waktu, String no_ponsel, String kategori_sampah, String id) {
+    private void transactions(String tanggal, String waktu, String no_ponsel, String kategori_sampah, String alamat, String id) {
         apiInterface = ApiClient.getClient().create(ApiInterface.class);
-        Call<TransactionClass> transactionClassCall = apiInterface.insertTransaction(tanggal, waktu, no_ponsel, kategori_sampah, id);
+        Call<TransactionClass> transactionClassCall = apiInterface.insertTransaction(tanggal, waktu, no_ponsel, kategori_sampah, alamat, id);
         transactionClassCall.enqueue(new Callback<TransactionClass>() {
             @Override
             public void onResponse(Call<TransactionClass> call, Response<TransactionClass> response) {
@@ -190,6 +200,19 @@ public class DropOffActivity extends AppCompatActivity {
 
     }
 
+    public boolean isServicesOK(){
+        int available = GoogleApiAvailability.getInstance().isGooglePlayServicesAvailable(DropOffActivity.this);
 
+        if(available == ConnectionResult.SUCCESS){
+            return true;
+        }
+        else if(GoogleApiAvailability.getInstance().isUserResolvableError(available)){
+            Dialog dialog = GoogleApiAvailability.getInstance().getErrorDialog(DropOffActivity.this, available, ERROR_DIALOG_REQUEST);
+            dialog.show();
+        }else{
+            Toast.makeText(this, "You can't make map requests", Toast.LENGTH_SHORT).show();
+        }
+        return false;
+    }
 
 }
