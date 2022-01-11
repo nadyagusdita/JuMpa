@@ -115,11 +115,11 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<DashboardResponse> call, Response<DashboardResponse> response) {
                 if (response.body() != null && response.isSuccessful() && response.body().isError() != true) {
-                    saldo = response.body().getData().getBeratTotal();
-                    berat = response.body().getData().getTotalHarga();
+                    berat = response.body().getData().getBeratTotal();
+                    saldo = response.body().getData().getTotalHarga();
 
-                    tvBerat.setText("Rp " + NumberFormat.getNumberInstance(Locale.GERMAN).format(saldo));
-                    tvSaldo.setText(berat + " Kg");
+                    tvSaldo.setText("Rp " + saldo);
+                    tvBerat.setText(berat + " Kg");
                 }
             }
 
