@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -52,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
         getData(user_id);
 
         txtuser = findViewById(R.id.txtuser);
-        username = sessionManager.getUserData().get("USERNAME");
+        username = sessionManager.getUsername();
         txtuser.setText("Hai, " + username);
 
         Button btn_logout = findViewById(R.id.btn_logout);
@@ -99,6 +100,7 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
     }
 
     private void moveToLogin() {
@@ -130,5 +132,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
 
 }

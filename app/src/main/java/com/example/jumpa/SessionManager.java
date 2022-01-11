@@ -48,6 +48,11 @@ public class SessionManager {
         return getId;
     }
 
+    public String getUsername(){
+        String username = sharedPreferences.getString(USERNAME, "");
+        return username;
+    }
+
     public void LogoutSession(){
         editor.clear();
         editor.commit();
